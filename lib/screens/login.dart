@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:mental_health_tracker/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_health_tracker/screens/register.dart';
@@ -101,12 +103,13 @@ class _LoginPageState extends State<LoginPage> {
                       // Cek kredensial
                       // Untuk menyambungkan Android emulator dengan Django pada localhost,
                       // gunakan URL http://10.0.2.2/
-                      final response = await request
-                          .login("http://muhammad-wendy-mentalhealthtracker2.pbp.cs.ui.ac.id/auth/login/", {
+                      final response = await request.login(
+                        //"http://muhammad-wendy-mentalhealthtracker2.pbp.cs.ui.ac.id/auth/login/", {
+                        'http://127.0.0.1:8000/auth/login/', {
                         'username': username,
                         'password': password,
-                      });
-
+                        }
+                      );
                       if (request.loggedIn) {
                         String message = response['message'];
                         String uname = response['username'];

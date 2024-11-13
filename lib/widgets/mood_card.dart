@@ -53,7 +53,8 @@ class ItemCard extends StatelessWidget {
           }
           else if (item.name == "Logout") {
             final response = await request.logout(
-                "http://muhammad-wendy-mentalhealthtracker2.pbp.cs.ui.ac.id//auth/logout/");
+                //"http://muhammad-wendy-mentalhealthtracker2.pbp.cs.ui.ac.id/auth/logout/");
+                "http://127.0.0.1:8000/auth/logout/");
             String message = response["message"];
             if (context.mounted) {
                 if (response['status']) {
